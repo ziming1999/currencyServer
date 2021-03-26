@@ -26,12 +26,106 @@ app.use(function(req,res,next){
     next();
 })
 
-app.get('/',(req,res,next)=>{
+app.get('/EURAUD',(req,res,next)=>{
     let params = {
         TableName: "forexCurrency",
         FilterExpression : 'Currency = :currency',
         ExpressionAttributeValues : {
             ':currency' : "EUR/AUD"
+        }
+    };
+    documentClient.scan(params, (err, data) => {
+        if (err) {
+            console.error("Unable to scan table: ", params.TableName);
+            console.error("Error JSON:", JSON.stringify(err));
+        }
+        else {
+            res.send(data);
+        }
+    });
+})
+
+app.get('/EURCAD',(req,res,next)=>{
+    let params = {
+        TableName: "forexCurrency",
+        FilterExpression : 'Currency = :currency',
+        ExpressionAttributeValues : {
+            ':currency' : "EUR/CAD"
+        }
+    };
+    documentClient.scan(params, (err, data) => {
+        if (err) {
+            console.error("Unable to scan table: ", params.TableName);
+            console.error("Error JSON:", JSON.stringify(err));
+        }
+        else {
+            res.send(data);
+        }
+    });
+})
+app.get('/EURCNY',(req,res,next)=>{
+    let params = {
+        TableName: "forexCurrency",
+        FilterExpression : 'Currency = :currency',
+        ExpressionAttributeValues : {
+            ':currency' : "EUR/CNY"
+        }
+    };
+    documentClient.scan(params, (err, data) => {
+        if (err) {
+            console.error("Unable to scan table: ", params.TableName);
+            console.error("Error JSON:", JSON.stringify(err));
+        }
+        else {
+            res.send(data);
+        }
+    });
+})
+
+app.get('/EURGBP',(req,res,next)=>{
+    let params = {
+        TableName: "forexCurrency",
+        FilterExpression : 'Currency = :currency',
+        ExpressionAttributeValues : {
+            ':currency' : "EUR/GBP"
+        }
+    };
+    documentClient.scan(params, (err, data) => {
+        if (err) {
+            console.error("Unable to scan table: ", params.TableName);
+            console.error("Error JSON:", JSON.stringify(err));
+        }
+        else {
+            res.send(data);
+        }
+    });
+})
+
+app.get('/EURJPY',(req,res,next)=>{
+    let params = {
+        TableName: "forexCurrency",
+        FilterExpression : 'Currency = :currency',
+        ExpressionAttributeValues : {
+            ':currency' : "EUR/JPY"
+        }
+    };
+    documentClient.scan(params, (err, data) => {
+        if (err) {
+            console.error("Unable to scan table: ", params.TableName);
+            console.error("Error JSON:", JSON.stringify(err));
+        }
+        else {
+            res.send(data);
+        }
+    });
+})
+
+app.get('/EURUSD',(req,res,next)=>{
+    let params = {
+        TableName: "forexCurrency",
+        FilterExpression : 'Currency = :currency',
+        ExpressionAttributeValues : {
+            ':currency' : "EUR/USD"
         }
     };
     documentClient.scan(params, (err, data) => {
